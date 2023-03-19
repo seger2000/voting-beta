@@ -181,7 +181,6 @@
                                 type="vote"
                                 name="Votează"
                                 id="voteBtn"
-                                
                             />
                         </div>
                     </section>
