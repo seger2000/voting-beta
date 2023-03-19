@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import ButtonAntd from './ButtonAntd/ButtonAntd';
 import Button from './components-object/Button';
 import { BellOutlined, CheckCircleOutlined, CloseCircleOutlined, CloseOutlined } from '@ant-design/icons';
-import { Badge, Col, List, Modal, Row, Tag } from 'antd';
+import { Badge, Col, Empty, List, Modal, Row, Tag } from 'antd';
 
 const NavigationBar = () => {
 
@@ -72,32 +72,35 @@ const NavigationBar = () => {
                                             />
                                         </div>
                                         <div className='notification-modal-body'>
-                                            <List>
-                                                {notificationList.map((item, index) => (
-                                                    <List.Item
-                                                        key={index}
-                                                    >
-                                                        <Row
-                                                            gutter={[16, 16]}
-                                                            justify="space-between"
+                                            {notificationList.length === 0
+                                                ? <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+                                                : <List>
+                                                    {notificationList.map((item, index) => (
+                                                        <List.Item
+                                                            key={index}
                                                         >
-                                                            <Col
-                                                                span={3}
+                                                            <Row
+                                                                gutter={[16, 16]}
+                                                                justify="space-between"
                                                             >
-                                                                {item.status
-                                                                    ? <Tag className='tag-icon' icon={<CheckCircleOutlined />} color="success" />
-                                                                    : <Tag className='tag-icon' icon={<CloseCircleOutlined />} color="error" />
-                                                                }
-                                                            </Col>
-                                                            <Col
-                                                                span={21}
-                                                            >
-                                                                <p className='notification-list-item'>{item.content}</p>
-                                                            </Col>
-                                                        </Row>
-                                                    </List.Item>
-                                                ))}
-                                            </List>
+                                                                <Col
+                                                                    span={3}
+                                                                >
+                                                                    {item.status
+                                                                        ? <Tag className='tag-icon' icon={<CheckCircleOutlined />} color="success" />
+                                                                        : <Tag className='tag-icon' icon={<CloseCircleOutlined />} color="error" />
+                                                                    }
+                                                                </Col>
+                                                                <Col
+                                                                    span={21}
+                                                                >
+                                                                    <p className='notification-list-item'>{item.content}</p>
+                                                                </Col>
+                                                            </Row>
+                                                        </List.Item>
+                                                    ))}
+                                                </List>
+                                            }
                                         </div>
                                     </div>
                                 }
