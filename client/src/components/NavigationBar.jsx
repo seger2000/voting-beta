@@ -1,25 +1,45 @@
-import React, { Fragment, useState } from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import ButtonAntd from './ButtonAntd/ButtonAntd';
 import Button from './components-object/Button';
 import { BellOutlined, CheckCircleOutlined, CloseCircleOutlined, CloseOutlined } from '@ant-design/icons';
 import { Badge, Col, Empty, List, Modal, Row, Tag } from 'antd';
+import axios from "axios";
 
 const NavigationBar = () => {
 
     const [notificationModal, setNotificationModal] = useState(false);
+    const [notificationList, setNotificationList] = useState({});
 
-    const notificationList = [
-        {
-            id: 1,
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl.',
-            status: 0,
+    // const notificationList = [
+    //     {
+    //         id: 1,
+    //         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl.',
+    //         status: 0,
+    //     },
+    //     {
+    //         id: 2,
+    //         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl.',
+    //         status: 1,
+    //     },
+    // ];
+
+    const instance = axios.create({
+        baseURL: '/api/',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
         },
-        {
-            id: 2,
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl.',
-            status: 1,
-        },
-    ]
+    });
+
+    useEffect(() => {
+        instance.get('all_data?total_number=2200000&number_processed=1500000')
+            .then(function (response) {
+                setNotificationList(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, [])
 
     return (
         <Fragment>
@@ -43,7 +63,7 @@ const NavigationBar = () => {
                                 id="btn-window"
                             />
                             <Badge
-                                count={5}
+                                count={notificationList.length}
                             >
                                 <ButtonAntd
                                     className="button-antd-notification"
@@ -94,7 +114,7 @@ const NavigationBar = () => {
                                                                 <Col
                                                                     span={21}
                                                                 >
-                                                                    <p className='notification-list-item'>{item.content}</p>
+                                                                    <p className='notification-list-item'>{item.contend}</p>
                                                                 </Col>
                                                             </Row>
                                                         </List.Item>
