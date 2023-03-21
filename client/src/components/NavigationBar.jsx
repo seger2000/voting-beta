@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useState} from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import ButtonAntd from './ButtonAntd/ButtonAntd';
 import Button from './components-object/Button';
 import { BellOutlined, CheckCircleOutlined, CloseCircleOutlined, CloseOutlined } from '@ant-design/icons';
@@ -13,12 +13,32 @@ const NavigationBar = () => {
     // const notificationList = [
     //     {
     //         id: 1,
-    //         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl.',
+    //         contend: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl.',
     //         status: 0,
     //     },
     //     {
     //         id: 2,
-    //         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl.',
+    //         contend: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl.',
+    //         status: 1,
+    //     },
+    //     {
+    //         id: 3,
+    //         contend: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl.',
+    //         status: 0,
+    //     },
+    //     {
+    //         id: 4,
+    //         contend: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam ultricies, nunc elit aliquam nisl, eu aliquam nisl nisl sit amet nisl.',
+    //         status: 1,
+    //     },
+    //     {
+    //         id: 5,
+    //         contend: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    //         status: 0,
+    //     },
+    //     {
+    //         id: 6,
+    //         contend: 'Lorem ipsum .',
     //         status: 1,
     //     },
     // ];
@@ -39,7 +59,7 @@ const NavigationBar = () => {
             .catch(function (error) {
                 console.log(error);
             });
-    }, [])
+    }, []);
 
     return (
         <Fragment>

@@ -940,7 +940,7 @@ a {
   background-color: #FFFFFF;
   border-radius: 3px;
   box-shadow: 0 4px 8px -2px rgba(9, 30, 66, 0.25), 0 0 1px rgba(9, 30, 66, 0.31);
-  overflow: hidden;
+  overflow-y: scroll;
 
   display: flex;
 }
@@ -965,6 +965,10 @@ a {
   padding: 10px 40px;
 
   overflow-wrap: break-word;
+}
+
+.notification-modal-body > div > div > .ant-spin-container > .ant-list-item{
+  display: block;
 }
 
 .ant-list-item{
